@@ -4,7 +4,7 @@
 
 # Site
 title: '学徒喵ZS的学徒笔记'
-subtitle: '该玩玩该歇歇，小摆不算摆'
+subtitle: #'该玩玩该歇歇，小摆不算摆'
 description: '物来顺应，泰然处之'
 keywords: 学徒喵ZS,博客
 author: '左川常乐'
@@ -106,3 +106,11 @@ deploy:    #部署设置
   repo: 'git@github.com:blogZshun/blogZshun.github.io.git'
   branch: master
   
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000 
+  # content: true
+  # template: ./search.xml
+

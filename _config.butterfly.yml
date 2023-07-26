@@ -8,74 +8,78 @@ nav:
   fixed: false # fixed navigation bar
 
 # Menu 目錄
+#格式为：菜单名: /路径 || 图标
 menu:
-  # Home: / || fas fa-home
-  # Archives: /archives/ || fas fa-archive
-  # Tags: /tags/ || fas fa-tags
-  # Categories: /categories/ || fas fa-folder-open
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
+  主页: / || fas fa-home
+  文章总览: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  收藏链接: /link/ || fas fa-heart
+  # 链接||fas fa-list:
+  #   友情链接: /link/ || fas fa-link
+  #   收藏链接: /shoucang/ || fas fa-heart    #二级标签的写法
+    # you: /music/ || fas fa-music
+    # Movie: /movies/ || fas fa-video
   # Link: /link/ || fas fa-link
   # About: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
-highlight_copy: true # copy button
-highlight_lang: true # show the code language
+highlight_theme: pale night #  darker / pale night / light / ocean / mac / mac light / false 代码渲染风格
+highlight_copy: true # copy button 复制按钮
+highlight_lang: true # show the code language 
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
-highlight_height_limit: false # unit: px
-code_word_wrap: false
+highlight_height_limit: 266 # unit: px 代码高度设置
+code_word_wrap: false #滚动条设置false时有滚动条代码不会自动换行
 
 # Social Settings (社交圖標設置)
 # formal:
 #   icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
-
+  fab fa-github: https://github.com/blogZshun || Github || '#24292e'
+  fas fa-envelope: mailto:3121018606@qq.com || Email || '#24292e'
+  fa-solid fa-user: https://wpa.qq.com/wpa_jump_page?v=3&uin=3121018606&site=qq&menu=yes || QQ || '#24292e'
 # Image (圖片設置)
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: "./img/网页头像.jpg"
 
 # Avatar (頭像)
 avatar:
-  img: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
+  img: "./img/小猫头像.jpg"
   effect: false
 
 # Disable all banner image
 disable_top_img: false
 
 # The banner image of home page
-index_img:
+index_img: "./img/绿草地护眼.jpg" #首页顶部图
 
 # If the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: "./img/绿草地护眼.jpg" #文章阅读默认顶部图
 
 # The banner image of archive page
-archive_img:
+archive_img: "./img/绿草地护眼.jpg" #文章总览顶部图
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img:
+tag_img: "./img/绿草地护眼.jpg"
 
 # The banner image of tag page
 # format:
 #  - tag name: xxxxx
-tag_per_img:
+tag_per_img: "./img/绿草地护眼.jpg"
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img:
+category_img: "./img/绿草地护眼.jpg"
 
 # The banner image of category page
 # format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: "./img/绿草地护眼.jpg"
 
 cover:
   # display the cover or not (是否顯示文章封面)
@@ -87,6 +91,9 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
+    - ./img/梦幻太空人.jpg
+    - ./img/惠横屏漫步.jpg
+    - ./img/灯泡绿树.jpg
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 
 # Replace Broken Images (替換無法顯示的圖片)
@@ -102,7 +109,7 @@ error_404:
 
 post_meta:
   page: # Home Page
-    date_type: created # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
+    date_type: both # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
     date_format: date # date/relative 顯示日期還是相對日期
     categories: true # true or false 主頁是否顯示分類
     tags: false # true or false 主頁是否顯示標籤
@@ -119,8 +126,9 @@ post_meta:
 # 2: both (if the description exists, it will show description, or show the auto_excerpt)
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
-index_post_content:
-  method: 3
+#主頁文章節選(自動節選和文章頁description)
+index_post_content: 
+  method: 2
   length: 500 # if you set method to 2 or 3, the length need to config
 
 # anchor
@@ -132,14 +140,14 @@ anchor:
   auto_update: false # when you scroll in post, the URL will update according to header id.
 
 # figcaption (圖片描述文字)
-photofigcaption: false
+photofigcaption: true
 
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
   enable: true
   copyright:
-    enable: false
+    enable: true
     limit_count: 50
 
 # Post
@@ -150,8 +158,8 @@ toc:
   post: true
   page: false
   number: true
-  expand: false
-  style_simple: false # for post
+  expand: true
+  style_simple: true # for post
   scroll_percent: true
 
 post_copyright:
@@ -219,7 +227,7 @@ aside:
   hide: false
   button: true
   mobile: true # display on mobile
-  position: right # left or right
+  position: left # left or right
   display:
     archive: true
     tag: true
@@ -231,10 +239,10 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/blogZshun
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: This is the blog of zs miao.
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -361,7 +369,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # Preload the search data when the page loads.
   preload: false
   # Show top n results per article, show all results by setting to -1
@@ -405,7 +413,9 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: # Valine,Disqus
+  use: 
+    - Livere
+  # Valine,Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
@@ -430,7 +440,7 @@ disqusjs:
 # livere (來必力)
 # https://www.livere.com/
 livere:
-  uid:
+  uid: MTAyMC81ODc2MS8zNTIyMw==
 
 # gitalk
 # https://github.com/gitalk/gitalk
@@ -640,7 +650,7 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background:
+background: url("/img/绿草地护眼.jpg")
 
 # Footer Background
 footer_bg: false
@@ -720,7 +730,7 @@ display_mode: light
 
 # Beautify (美化頁面顯示)
 beautify:
-  enable: false
+  enable: true
   field: post # site/post
   title-prefix-icon: # '\f0c1'
   title-prefix-icon-color: # '#F47466'
@@ -747,21 +757,28 @@ hr_icon:
 
 # the subtitle on homepage (主頁subtitle)
 subtitle:
-  enable: false
+  enable: true
   # Typewriter Effect (打字效果)
   effect: true
   # Customize typed.js (配置typed.js)
   # https://github.com/mattboldt/typed.js/#customization
-  typed_option:
+  typed_option: 
   # source 調用第三方服務
   # source: false 關閉調用
   # source: 1  調用一言網的一句話（簡體） https://hitokoto.cn/
   # source: 2  調用一句網（簡體） https://yijuzhan.com/
   # source: 3  調用今日詩詞（簡體） https://www.jinrishici.com/
   # subtitle 會先顯示 source , 再顯示 sub 的內容
-  source: false
+  source: 3
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
+    - 若无闲事挂心头，便是人间好时节。
+    - 该玩玩该歇歇，小摆不算摆。
+    - 看山看水独坐，听风听雨高眠。
+    - 姑苏城外寒山寺，夜半钟声到客船。
+    - 弃我去者，昨日之日不可留。
+    - 春有百花秋有月，夏有凉风冬有雪。
+    - 浪漫至死不渝。
 
 # Loading Animation (加載動畫)
 preloader:
@@ -776,7 +793,7 @@ preloader:
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -984,3 +1001,4 @@ CDN:
     # artalk_css:
     # busuanzi:
     # abcjs_basic_js:
+
